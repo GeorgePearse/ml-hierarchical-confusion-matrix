@@ -14,6 +14,12 @@ const copyright = `// ${pkg.name} v${pkg.version} Copyright ${(new Date).getFull
 
 const production = !process.env.ROLLUP_WATCH;
 
+// TODO -> get this to actually do something 
+const server = Hapi.server({
+    host: '0.0.0.0',
+    port: 3000
+});
+
 export default [
     // App
     {
@@ -43,7 +49,7 @@ export default [
                 dedupe: ['svelte'],
             }),
             commonjs(),
-            !production && Server(),
+            !production && server, //Server(),
             !production && livereload('public'),
             production && terser({ output: { preamble: copyright } }),
         ],

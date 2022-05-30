@@ -50,7 +50,7 @@
         "build": "rollup -c",
         "autobuild": "rollup -c -w",
         "dev": "run-p start:dev autobuild",
-        "start": "sirv public --single",
+        "start": "sirv public --single --host --port 3000",
         "start:dev": "sirv public --single --dev",
         "svelte-check": "npx svelte-check",
         "lint": "eslint --config .eslintrc.json --ext .js,.ts,.json .",
